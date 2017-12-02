@@ -1,0 +1,1206 @@
+# Variables for starting_cash and 5% return during January
+starting_cash <- 200
+jan_ret <- 5
+jan_mult <- 1 + (jan_ret / 100)
+
+# How much money do you have at the end of January?
+post_jan_cash <- starting_cash * jan_mult
+
+# Print post_jan_cash
+post_jan_cash
+
+# January 10% return multiplier
+jan_ret_10 <- 10
+jan_mult_10 <- 1 + (jan_ret_10/100)
+
+# How much money do you have at the end of January now?
+post_jan_cash_10 <- starting_cash * jan_mult_10
+# Print post_jan_cash_10
+post_jan_cash_10
+
+# Starting cash and returns 
+starting_cash <- 200
+jan_ret <- 4
+feb_ret <- 5
+
+# Multipliers
+jan_mult <- 1 + (jan_ret/100)
+feb_mult <- 1 + (feb_ret/100)
+
+jan_end <- starting_cash * jan_mult
+
+# Total cash at the end of the two months
+total_cash <- jan_end * feb_mult 
+
+# Print total_cash
+total_cash
+
+# Apple's stock price is a numeric
+apple_stock <- 150.45
+
+# Bond credit ratings are characters
+credit_rating <- "AAA"
+
+# You like the stock market. TRUE or FALSE?
+my_answer <- TRUE
+
+# Print my_answer
+my_answer
+
+# Another numeric vector
+ibm_stock <- c(159.82, 160.02, 159.84)
+
+# Another character vector
+finance <- c("stocks", "bonds" , "investments")
+
+# A logical vector
+logic <- c(TRUE, FALSE, TRUE) 
+
+# Vectors of 12 months of returns, and month names
+ret <- c(5, 2, 3, 7, 8, 3, 5, 9, 1, 4, 6, 3)
+months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+
+# Add names to ret
+names(ret) <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+
+# Print out ret to see the new names!
+ret
+
+# Look at the data
+apple_stock
+
+# Plot the data points
+plot(apple_stock)
+
+# Plot the data as a line graph
+plot(apple_stock, type = "l")
+
+
+# Weights and returns
+micr_ret <- 7
+sony_ret <- 9
+micr_weight <- .2
+sony_weight <- .8
+
+# Portfolio return
+portf_ret <- micr_ret * micr_weight + sony_ret * sony_weight
+
+# Weights, returns, and company names
+ret <- c(7, 9)
+weight <- c(.2, .8)
+companies <- c("Microsoft", "Sony")
+
+# Assign company names to your vectors
+names(ret) <- companies
+names(weight) <- companies
+
+# Multiply the returns and weights together 
+ret_X_weight <- ret * weight
+
+# Print ret_X_weight
+ret_X_weight
+
+# Sum to get the total portfolio return
+portf_ret <- sum(ret_X_weight)
+
+# Print portf_ret
+portf_ret
+
+
+names(ret)
+names(weight) <- companies
+
+# Print ret
+ret
+
+# Assign 1/3 to weight
+weight <- 1/3
+
+# Create ret_X_weight
+ret_X_weight <- ret * weight 
+
+# Calculate your portfolio return
+portf_ret <- sum(ret_X_weight)
+
+# Vector of length 3 * Vector of length 2?
+ret * c(.2, .6)
+
+# First 6 months of returns
+ret[1:6]
+
+# Just March and May
+ret[c("Mar" , "May")]
+
+# Omit the first month of returns
+ret[-1]
+
+# A vector of 9 numbers
+my_vector <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# 3x3 matrix
+my_matrix <- matrix(data =my_vector, nrow = 3, ncol = 3)
+
+# Print my_matrix
+my_matrix
+
+# Filling across using byrow = TRUE
+matrix(data = c(2, 3, 4, 5), nrow = 2, ncol = 2, byrow = TRUE)
+
+# cbind the vectors together
+cbind_stocks <- cbind(apple, ibm, micr)
+
+# Print cbind_stocks
+cbind_stocks
+
+# rbind the vectors together
+rbind_stocks <- rbind(apple, ibm, micr)
+
+# Print rbind_stocks
+rbind_stocks
+
+# View the data
+apple_micr_matrix
+
+# Scatter plot of Microsoft vs Apple
+plot(apple_micr_matrix)
+
+# Correlation of Apple and IBM
+cor(apple, ibm)
+
+# stock matrix
+stocks <- cbind(apple, micr, ibm)
+
+# cor() of all three
+cor(stocks)
+
+# Third row
+stocks[3, ]
+
+# Fourth and fifth row of the ibm column
+stocks[4:5, "ibm"]
+
+# apple and micr columns
+stocks[ , c("apple","micr")]
+
+# Variables
+company <- c("A", "A", "A", "B", "B", "B", "B")
+cash_flow <- c(1000, 4000, 550, 1500, 1100, 750, 6000)
+year <- c(1, 3, 4, 1, 2, 4, 5)
+
+# Data frame
+cash <- data.frame(company, cash_flow, year)
+
+# Print cash
+cash
+
+# Call head() for the first 4 rows
+head( cash, n = 4)
+
+# Call tail() for the last 3 rows
+tail( cash, n = 3)
+
+# Call str()
+str(cash)
+
+# Fix your column names
+colnames(cash) <- c("company","cash_flow","year")
+
+# Print out the column names of cash
+colnames(cash)
+
+# Third row, second column
+cash[3,2]
+
+# Fifth row of the "year" column
+cash[5, "year"]
+
+# Select the year column
+cash$year
+
+# Select the cash_flow column and multiply by 2
+cash$cash_flow * 2
+
+# Delete the company column
+cash$company <- NULL
+
+# Print cash again
+cash
+
+# Rows about company B
+subset(cash, company == "B")
+
+# Rows with cash flows due in 1 year
+subset(cash, year == 1)
+
+cash
+
+# Quarter cash flow scenario
+cash$quarter_cash <- cash$cash_flow * .25 
+
+# Double year scenario
+cash$double_year <- 2*cash$year
+
+# Present value of $4000, in 3 years, at 5%
+present_value_4k <- 4000 * (1 + 5 / 100) ^ -3
+
+# Present value of all cash flows
+cash$present_value <- cash$cash_flow * (1 + 0.05) ^ - cash$year
+
+# Print out cash
+cash
+
+# Total present value of cash
+total_pv <- sum(cash$present_value)
+
+# Company B information
+cash_B <- subset(cash, company == "B")
+
+# Total present value of cash_B
+total_pv_B <- sum(cash_B$present_value)
+
+# credit_rating character vector
+credit_rating <- c("BB", "AAA", "AA", "CCC", "AA", "AAA", "B", "BB")
+
+# Create a factor from credit_rating
+credit_factor <- factor(credit_rating)
+
+# Print out your new factor
+credit_factor
+
+# Call str() on credit_rating
+str(credit_rating)
+
+# Call str() on credit_factor
+str(credit_factor)
+
+# Identify unique levels
+levels(credit_factor)
+ 
+# Rename the levels of credit_factor
+levels(credit_factor) <- c("2A", "3A","1B", "2B", "3C")
+
+# Print credit_factor
+credit_factor
+
+# Summarize the character vector, credit_rating
+summary(credit_rating)
+
+# Summarize the factor, credit_factor
+summary(credit_factor)
+
+# Create 4 buckets for AAA_rank using cut()
+AAA_factor <- cut(x = AAA_rank, breaks = c(0, 25, 50, 75, 100))
+
+# Rename the levels 
+levels(AAA_factor) <- c("low", "medium", "high", "very_high")
+
+# Print AAA_factor
+AAA_factor
+
+# Plot AAA_factor
+plot(AAA_factor)
+
+# Use unique() to find unique words
+unique(credit_rating)
+
+# Create an ordered factor
+credit_factor_ordered <- factor(credit_rating, ordered = TRUE, levels = c("AAA", "AA", "BB", "B", "CCC"))
+
+# Plot credit_factor_ordered
+plot(credit_factor_ordered)
+
+# Remove the A bonds at positions 3 and 7. Don't drop the A level.
+keep_level <- credit_factor[-c(3, 7)]
+
+# Plot keep_level
+plot(drop_level)
+
+
+# Remove the A bonds at positions 3 and 7. Drop the A level.
+drop_level <- credit_factor[-c(3, 7), drop=TRUE]
+
+# Plot drop_level
+plot(drop_level)
+
+# Variables
+credit_rating <- c("AAA", "A", "BB")
+bond_owners <- c("Dan", "Tom", "Joe")
+
+# Create the data frame of character vectors, bonds
+bonds <- data.frame(credit_rating, bond_owners, stringsAsFactors = FALSE)
+
+# Use str() on bonds
+str(bonds)
+
+# Create a factor column in bonds called credit_factor from credit_rating
+bonds$credit_factor <- factor(bonds$credit_rating, ordered = TRUE , levels = c("AAA", "A", "BB"))
+
+# Use str() on bonds again
+str(bonds)
+
+# List components
+name <- "Apple and IBM"
+apple <- c(109.49, 109.90, 109.11, 109.95, 111.03)
+ibm <- c(159.82, 160.02, 159.84, 160.35, 164.79)
+cor_matrix <- cor(cbind(apple, ibm))
+
+# Create a list
+portfolio <- list(name,apple,ibm,cor_matrix)
+
+# View your first list
+portfolio
+
+# Add names to your portfolio
+portfolio <- list(name,apple,ibm,cor_matrix)
+names(portfolio) <- c("portfolio_name","apple","ibm","correlation")
+# Print portfolio
+portfolio
+
+# Second and third elements of portfolio
+portfolio[c(2,3)]
+
+# Use $ to get the correlation data
+portfolio$correlation
+
+# Add weight: 20% Apple, 80% IBM
+portfolio$weight <- c(apple = 0.2 , ibm = 0.8)
+
+# Print portfolio
+portfolio
+
+# Change the weight variable: 30% Apple, 70% IBM
+portfolio$weight <- c(apple = 0.3 , ibm = 0.7)
+
+# Print portfolio to see the changes
+portfolio
+
+# Take a look at portfolio
+portfolio
+
+# Remove the microsoft stock prices from your portfolio
+portfolio$microsoft <- NULL
+
+# Define grouping from year
+grouping <- cash$year
+
+# Split cash on your new grouping
+split_cash <- split(cash, grouping)
+
+# Look at your split_cash list
+split_cash
+
+# Unsplit split_cash to get the original data back.
+original_cash <- unsplit(split_cash, grouping)
+
+# Print original_cash
+original_cash
+
+# Print split_cash
+split_cash
+
+# Print the cash_flow column of B in split_cash
+split_cash$B$cash_flow
+
+# Set the cash_flow column of company A in split_cash to 0
+split_cash$A$cash_flow <- 0
+
+# Use the grouping to unsplit split_cash
+cash_no_A <- unsplit(split_cash, grouping)
+
+# Print cash_no_A
+cash_no_A
+
+# my_matrix and my_factor
+my_matrix <- matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3)
+rownames(my_matrix) <- c("Row1", "Row2")
+colnames(my_matrix) <- c("Col1", "Col2", "Col3")
+
+my_factor <- factor(c("A", "A", "B"), ordered = T, levels = c("A", "B"))
+
+# attributes of my_matrix
+attributes(my_matrix)
+
+# Just the dim attribute of my_matrix
+attr(my_matrix, which = "dim")
+
+# attributes of my_factor
+attributes(my_factor)
+
+
+# What is the current date?
+Sys.Date()
+
+# What is the current date and time?
+Sys.time()
+
+# Create the variable today
+today <- Sys.Date()
+
+
+# Confirm the class of today
+class(today)
+
+
+# Create dates from "2017-02-05" to "2017-02-08" inclusive.
+dates <- c("2017-02-05", "2017-02-06", "2017-02-07", "2017-02-08")
+as.Date(dates)
+
+# Add names to dates
+names(dates) <- c("Sunday", "Monday", "Tuesday", "Wednesday")
+
+# Subset dates to only return the date for Monday
+dates["Monday"]
+dates["2017-02-06"]
+
+
+# "08,30,30"
+as.Date("08,30,1930", format ="%m ,%d ,%Y")
+
+# "Aug 30,1930"
+as.Date("Aug 30,1930", format = "%b %d,%Y")
+
+# "30aug1930"
+as.Date("30aug1930", format = "%d%b%Y")
+
+
+# char_dates
+char_dates <- c("1jan17", "2jan17", "3jan17", "4jan17", "5jan17")
+
+# Create dates using as.Date() and the correct format 
+dates <- 
+
+# Use format() to go from "2017-01-04" -> "Jan 04, 17"
+
+
+# Use format() to go from "2017-01-04" -> "01,04,2017"
+
+
+# Dates
+dates <- as.Date(c("2017-01-01", "2017-01-02", "2017-01-03"))
+
+# Create the origin
+origin <- as.Date("1970-01-01")
+
+
+
+# Find the difference between dates and origin
+dates - origin
+
+# Use as.numeric() on dates
+as.numeric(dates)
+
+
+# dates
+dates <- as.Date(c("2017-01-02", "2017-05-03", "2017-08-04", "2017-10-17"))
+
+# Extract the months
+months(dates)
+
+# Extract the quarters
+quarters(dates)
+
+# dates2
+dates2 <- as.Date(c("2017-01-02", "2017-01-03", "2017-01-04", "2017-01-05"))
+
+# Assign the weekdays() of dates2 as the names()
+names(dates2) <- c(weekdays(dates2))
+
+# Print dates2
+dates2
+
+# Stock prices
+apple <- 48.99
+micr <- 77.93
+
+# Apple vs Microsoft
+apple > micr
+
+# Not equals
+apple != micr
+
+# Dates - today and tomorrow
+today <- as.Date(Sys.Date())
+tomorrow <- as.Date(Sys.Date() + 1)
+
+# Today vs Tomorrow
+tomorrow < today
+
+
+# Print stocks
+stocks
+
+# IBM range
+stocks$ibm_buy <- c(stocks$ibm < 175)
+
+# Panera range
+stocks$panera_sell <- c(stocks$panera > 213)
+
+# IBM vs Panera
+stocks$ibm_vs_panera <- c(stocks$ibm > stocks$panera)
+
+# Print stocks
+stocks
+
+
+# IBM buy range
+stocks$ibm_buy_range <- (stocks$ibm > 171) & (stocks$ibm < 176)
+
+# Panera spikes
+stocks$panera_spike <- (stocks$panera < 213.20) | (stocks$panera > 216.50)
+
+# Date range
+stocks$good_dates <- (stocks$date > as.Date("2017-01-21")) & (stocks$date < as.Date("2017-01-25"))
+
+# Print stocks
+stocks
+
+
+# IBM range
+!(stocks$ibm > 176)
+
+# Missing data
+missing <- c(24.5, 25.7, NA, 28, 28.6, NA)
+
+# Is missing?
+is.na(missing)
+
+# Not missing?
+!is.na(missing)
+
+# Panera range
+subset(stocks, panera > 216)
+
+# Specific date
+subset(stocks, date == as.Date("2017-01-23") )
+
+# IBM and Panera joint range
+subset(stocks, ibm < 175 & panera < 216.50 )
+
+
+# View stocks
+stocks
+
+# Weekday investigation
+stocks$weekday <- weekdays(stocks$date)
+
+# View stocks again
+stocks
+
+# Remove missing data
+stocks_no_NA <- subset(stocks, !is.na(apple))
+
+# Apple and Microsoft joint range
+subset(stocks_no_NA, apple > 117 | micr > 63)
+
+
+# micr
+micr <- 48.55
+
+# Fill in the blanks
+if( micr < 55 ) {
+    print("Buy!")
+}
+
+# micr
+micr <- 57.44
+
+# Fill in the blanks
+if( micr < 55 ) {
+    print("Buy!")
+} else {
+    print("Do nothing!")
+}
+
+# micr
+micr <- 105.67
+
+# Fill in the blanks
+if( micr < 55 ) {
+    print("Buy!")
+} else if( micr >= 55 & micr < 75 ){
+    print("Do nothing!")
+} else { 
+    print("Sell!")
+}
+
+
+# micr
+micr <- 105.67
+shares <- 1
+
+# Fill in the blanks
+if( micr < 55 ) {
+    print("Buy!")
+} else if( micr >= 55 & micr < 75 ) {
+    print("Do nothing!")
+} else { 
+    if( shares >= 1 ) {
+        print("Sell!")
+    } else {
+        print("Not enough shares to sell!")
+    }
+}
+
+# Microsoft test
+stocks$micr_buy <- ifelse(test = stocks$micr > 60 & stocks$micr < 62, yes = 1, no = 0)
+
+# Apple test
+stocks$apple_date <- ifelse(test = stocks$apple > 117, yes = stocks$date, no = NA)
+
+# Print stocks
+stocks
+
+# Change the class() of apple_date.
+class(stocks$apple_date) <- "Date"
+
+# Print stocks again
+stocks
+
+# Stock price
+stock_price <- 126.34
+
+repeat {
+  # New stock price
+  stock_price <- stock_price * runif(1, .985, 1.01)
+  print(stock_price)
+  
+  # Check
+  if(stock_price < 125) {
+    print("Stock price is below 125! Buy it while it's cheap!")
+    break
+  }
+}
+
+# Stock price
+stock_price <- 67.55
+
+repeat {
+  # New stock price
+  stock_price <- stock_price * .995
+  
+ 
+  # Check
+  if(stock_price < 66) {
+    print("Stock price is below 66! Buy it while it's cheap!")
+    break
+  }
+  print(stock_price)
+}
+
+# Initial debt
+debt <- 5000
+
+# While loop to pay off your debt
+while (debt > 0) {
+  debt <- debt - 500
+  print(paste("Debt remaining", debt))
+}
+
+
+debt <- 5000    # initial debt
+i <- 0          # x axis counter
+x_axis <- i     # x axis
+y_axis <- debt  # y axis
+
+# Initial plot
+plot(x_axis, y_axis, xlim = c(0,10), ylim = c(0,5000))
+
+# Graph your debt
+while (debt > 0) {
+
+  # Updating variables
+  debt <- debt - 500
+  i <- i + 1
+  x_axis <- c(x_axis, i)
+  y_axis <- c(y_axis, debt)
+  
+  # Next plot
+  plot(x_axis, y_axis, xlim = c(0,10), ylim = c(0,5000))
+}
+
+# debt and cash
+debt <- 5000
+cash <- 4000
+
+# Pay off your debt...if you can!
+while (debt > 0) {
+  debt <- debt - 500
+  cash <- cash - 500
+  print(paste("Debt remaining:", debt, "and Cash remaining:", cash))
+
+  if (cash == 0) {
+    print("You ran out of cash!")
+    break
+  }
+}
+
+# Sequence
+seq <- c(1:10)
+
+# Print loop
+for (value in seq) {
+    print(value)
+}
+
+# A sum variable
+sum <- 0
+
+# Sum loop
+for (value in seq) {
+    sum <- sum + value
+    print(sum)
+}
+
+
+# Loop over stock rows
+for (row in 1:nrow(stock)) {
+    price <- stock[row, "apple"]
+    date  <- stock[row, "date"]
+
+    if(price > 116) {
+        print(paste("On", date, 
+                    "the stock price was", price))
+    } else {
+        print(paste("The date:", date, 
+                    "is not an important day!"))
+    }
+}
+
+# Print out corr
+corr
+
+# Create a nested loop
+for(row in 1:nrow(corr)) {
+    for(col in 1:ncol(corr)) {
+        print(paste(colnames(corr)[col], "and", rownames(corr)[row],
+                    "have a correlation of", corr[row,col]))
+    }
+}
+
+# Print apple
+apple
+
+# Loop through apple. Next if NA. Break if above 117.
+for (value in apple) {
+    if(is.na(value)) {
+        print("Skipping NA")
+        next
+    }
+    
+    if(value > 117) {
+        print("Time to sell!")
+        break
+    } else {
+        print("Nothing to do here!")
+    }
+}
+
+
+# subset help
+?subset
+
+# Sys.time help
+?Sys.time
+
+
+# Round 5.4
+round(5.4)
+
+# Round 5.4 with 1 decimal place
+round(5.4, digits = 1)
+
+
+# numbers
+numbers <- c(.002623, pi, 812.33345)
+
+# Round numbers to 3 decimal places
+round(numbers, digits = 3)
+
+
+# cbind() the stocks
+stocks <- cbind(apple, ibm, micr)
+
+# cor() to create the correlation matrix
+cor(stocks)
+
+# All at once! Nest cbind() inside of cor()
+cor(cbind(apple, ibm, micr))
+
+
+# Percent to decimal function
+percent_to_decimal <- function(percent) {
+    percent / 100
+}
+
+# Use percent_to_decimal() on 6
+percent_to_decimal(6)
+
+# Example percentage
+pct <- 8
+
+# Use percent_to_decimal() on pct
+percent_to_decimal(pct)
+
+
+# Percent to decimal function
+percent_to_decimal <- function(percent, digits = 2) {
+    decimal <- percent / 100
+    
+    round(decimal, digits)
+}
+
+# percents
+percents <- c(25.88, 9.045, 6.23)
+
+# percent_to_decimal() with default digits
+percent_to_decimal(percents)
+
+# percent_to_decimal() with digits = 4
+percent_to_decimal(percents, digits = 4)
+
+
+# Present value function
+pv <- function(cash_flow, i, year) {
+    
+    # Discount multiplier
+    mult <- 1 + percent_to_decimal(i)
+    
+    # Present value calculation
+    cash_flow * mult ^ -year
+}
+
+# Calculate a present value
+pv(1200, 7, 3)
+
+
+# Library tidquant
+library(tidyquant)
+
+# Pull Apple stock data
+apple <- tq_get("AAPL", get = "stock.prices", 
+                from = "2007-01-03", to = "2017-06-05")
+
+# Take a look at what it returned
+head(apple)
+
+# Plot the stock price over time
+plot(apple$date, apple$adjusted, type = "l")
+
+# Calculate daily stock returns for the adjusted price
+apple <- tq_mutate(data = apple,
+                   ohlc_fun = Ad,
+                   mutate_fun = dailyReturn)
+
+# Sort the returns from least to greatest
+sorted_returns <- sort(apple$daily.returns)
+
+# Plot them
+plot(sorted_returns)
+
+
+# Print stock_return
+stock_return
+
+# lapply to change percents to decimal
+lapply(stock_return, FUN = percent_to_decimal)
+
+
+# Print stock_return
+stock_return
+
+# lapply to get the average returns
+lapply(stock_return, FUN = mean)
+
+# Sharpe ratio
+sharpe <- function(returns) {
+    (mean(returns) - .0003) / sd(returns)
+}
+
+# lapply to get the sharpe ratio
+lapply(stock_return, FUN = sharpe)
+
+
+# sharpe
+sharpe <- function(returns, rf = .0003) {
+    (mean(returns) - rf) / sd(returns)
+}
+
+# First lapply()
+lapply(stock_return, FUN = sharpe, rf = .0004)
+
+# Second lapply()
+lapply(stock_return, FUN = sharpe, rf = .0009)
+
+
+# lapply() on stock_return
+lapply(stock_return, FUN = sharpe)
+
+# sapply() on stock_return
+sapply(stock_return, FUN = sharpe)
+
+# sapply() on stock_return with optional arguments
+sapply(stock_return, FUN = sharpe, simplify = FALSE, USE.NAMES = FALSE)
+
+
+# Market crash with as.Date()
+market_crash <- list(dow_jones_drop = 777.68, 
+                     date = as.Date("2008-09-28"))
+                     
+# Find the classes with sapply()
+sapply(market_crash, class)
+
+# Market crash with as.POSIXct()
+market_crash2 <- list(dow_jones_drop = 777.68, 
+                      date = as.POSIXct("2008-09-28"))
+
+# Find the classes with lapply()
+lapply(market_crash2, class)
+
+# Find the classes with sapply()
+sapply(market_crash2, class)
+
+
+# Market crash with as.POSIXct()
+market_crash2 <- list(dow_jones_drop = 777.68, 
+                      date = as.POSIXct("2008-09-28"))
+
+# Find the classes with sapply()
+sapply(market_crash2, class)
+
+# Find the classes with vapply()
+vapply(market_crash2, class, FUN.VALUE = character(1))
+
+
+# Sharpe ratio for all stocks
+vapply(stock_return, sharpe, FUN.VALUE = numeric(1))
+
+# Summarize Apple
+summary(stock_return$apple)
+
+# Summarize all stocks
+vapply(stock_return, summary, FUN.VALUE = numeric(6))
+
+
+# Max and min
+vapply(stock_return, 
+       FUN = function(x) { c(max(x), min(x)) }, 
+       FUN.VALUE = numeric(2))
+
+# Select all of 2016 from x
+x_2016 <- x["2016"]
+
+# Select January 1, 2016 to March 22, 2016
+jan_march <- x["2016/2016-03-22"]
+
+# Verify that jan_march contains 82 rows
+82 == length(jan_march)
+
+# Extract all data between 8AM and 10AM
+morn_2010 <- irreg["T08:00/T10:00"]
+
+# Extract the observations for January 13th, 2010
+morn_2010["2010-01-13"]
+
+# Subset x using the vector dates
+x[dates]
+
+# Subset x using dates as POSIXct
+x[as.POSIXct(dates)]
+
+# Replace the values in x contained in the dates vector with NA
+x[dates] <- NA
+
+# Replace all values in x for dates starting June 9, 2016 with 0
+x["2016-06-09/"] <- 0
+
+# Verify that the value in x for June 11, 2016 is now indeed 0
+x["2016-06-11"]
+
+# Create lastweek using the last 1 week of temps
+lastweek <- last(temps, "1 week")
+
+# Print the last 2 observations in lastweek
+last(lastweek, 2)
+
+# Extract all but the first two days of lastweek
+first(lastweek, "-2 days")
+
+# Extract the first three days of the second week of temps
+first(last(first(temps, "2 weeks"), "1 week"), "3 days")
+
+# Add a and b
+a + b
+
+# Add a with the numeric value of b
+a + as.numeric(b)
+
+# Add a to b, and fill all missing rows of b with 0
+a + merge(b, index(a), fill = 0)
+
+# Add a to b and fill NAs with the last observation
+a + merge(b, index(a), fill = na.locf)
+
+# Perform an inner join of a and b
+merge(a, b, join = "inner")
+
+# Perform a left-join of a and b, fill missing values with 0
+merge(a, b, join = "left", fill = 0)
+
+# Row bind temps_june30 to temps, assign this to temps2
+temps2 <- rbind(temps, temps_june30)
+
+# Row bind temps_july17 and temps_july18 to temps2, call this temps3
+temps3 <- rbind(temps2, temps_july17, temps_july18)
+
+# Fill missing values in temps using the last observation
+temps_last <- na.locf(temps)
+
+# Fill missing values in temps using the next observation
+temps_next <- na.locf(temps, fromLast = TRUE)
+
+# Interpolate NAs using linear approximation
+na.approx(AirPass)
+
+# Create a leading object called lead_x
+lead_x <- lag(x, k = -1)
+
+# Create a lagging object called lag_x
+lag_x  <- lag(x, k = 1)
+
+# Merge your three series together and assign to z
+z <- merge(lead_x, x, lag_x)
+
+# Calculate the first difference of AirPass and assign to diff_by_hand
+diff_by_hand <- AirPass - lag(AirPass)
+
+# Use merge to compare the first parts of diff_by_hand and diff(AirPass)
+merge(head(diff_by_hand), head(diff(AirPass)))
+
+# Calculate the first order 12 month difference of AirPass
+diff(AirPass, lag = 12, differences = 1)
+
+# Calculate the first difference of AirPass and assign to diff_by_hand
+diff_by_hand <- AirPass - lag(AirPass)
+
+# Use merge to compare the first parts of diff_by_hand and diff(AirPass)
+merge(head(diff_by_hand), head(diff(AirPass)))
+
+# Calculate the first order 12 month difference of AirPass
+diff(AirPass, lag = 12, differences = 1)
+
+# Calculate the weekly endpoints
+ep <- endpoints(temps, on = "weeks")
+
+# Now calculate the weekly mean and display the results
+period.apply(temps[, "Temp.Mean"], INDEX = ep, FUN = mean)
+
+# Split temps by week
+temps_weekly <- split(temps, f = "weeks")
+
+# Create a list of weekly means, temps_avg, and print this list
+temps_avg <- lapply(X = temps_weekly, FUN = mean)
+temps_avg
+
+# Use the proper combination of split, lapply and rbind
+temps_1 <- do.call(rbind, lapply(split(temps, "weeks"), function(w) last(w, n = "1 day")))
+
+# Create last_day_of_weeks using endpoints()
+last_day_of_weeks <- endpoints(temps, "weeks")
+
+# Subset temps using last_day_of_weeks 
+temps_2 <- temps[last_day_of_weeks]
+
+# Convert usd_eur to weekly and assign to usd_eur_weekly
+usd_eur_weekly <- to.period(usd_eur, period = "weeks")
+
+# Convert usd_eur to monthly and assign to usd_eur_monthly
+usd_eur_monthly <- to.period(usd_eur, period = "months")
+
+# Convert usd_eur to yearly univariate and assign to usd_eur_yearly
+usd_eur_yearly <- to.period(usd_eur, period = "years", OHLC = FALSE)
+
+# Convert eq_mkt to quarterly OHLC
+mkt_quarterly <- to.period(eq_mkt, period = "quarters")
+
+# Convert eq_mkt to quarterly using shortcut function
+mkt_quarterly2 <- to.quarterly(eq_mkt, name = "edhec_equity", indexAt = "firstof")
+
+# Split edhec into years
+edhec_years <- split(edhec, f = "years")
+
+# Use lapply to calculate the cumsum for each year in edhec_years
+edhec_ytd <- lapply(edhec_years, FUN = cumsum)
+
+# Use do.call to rbind the results
+edhec_xts <- do.call(rbind, edhec_ytd)
+
+# Use rollapply to calculate the rolling 3 period sd of eq_mkt
+eq_sd <- rollapply(eq_mkt, width = 3, FUN = sd)
+
+# View the first three indexes of temps
+index(temps)[1:3]
+
+# Get the index class of temps
+indexClass(temps)
+
+# Get the timezone of temps
+ indexTZ(temps)
+
+# Change the format of the time display
+indexFormat(temps) <- "%b-%d-%Y"
+
+# View the new format
+head(temps)
+
+# Construct times_xts with tzone set to America/Chicago
+times_xts <- xts(1:10, order.by = times, tzone = "America/Chicago")
+
+# Change the time zone of times_xts to Asia/Hong_Kong
+tzone(times_xts) <- "Asia/Hong_Kong"
+  
+# Extract the current time zone of times_xts
+ indexTZ(times_xts)
+ 
+ # Calculate the periodicity of temps
+periodicity(temps)
+
+# Calculate the periodicity of edhec
+periodicity(edhec)
+
+
+# Convert edhec to yearly
+edhec_yearly <- to.yearly(edhec)
+
+# Calculate the periodicity of edhec_yearly
+periodicity(edhec_yearly)
+
+# Count the months
+nmonths(edhec)
+
+# Count the quarters
+nquarters(edhec)
+
+# Count the years
+nyears(edhec)
+
+# Explore underlying units of temps in two commands: .index() and .indexwday()
+.index(temps)
+.indexwday(temps)
+
+
+# Create an index of weekend days using which()
+index <- which(.indexwday(temps) == 0 | .indexwday(temps) == 6)
+
+# Select the index
+temps[index]
+
+# Make z have unique timestamps
+z_unique <- make.index.unique(z, eps = 1e-4)
+
+# Remove duplicate times in z
+z_dup <- make.index.unique(z, drop = TRUE)
+
+# Round observations in z to the next hour
+z_round <- align.time(z, n = 3600)
+
+
